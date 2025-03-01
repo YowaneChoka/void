@@ -19,7 +19,7 @@
 			"type": "volume"
 		}
 	],
-	"postCreateCommand": "./.devcontainer/post-create.sh",
+	"postCreateCommand": "chmod +x ./.devcontainer/post-create.sh && ./.devcontainer/post-create.sh",
 	"customizations": {
 		"vscode": {
 			"settings": {
@@ -36,7 +36,7 @@
 			]
 		}
 	},
-	"forwardPorts": [6080, 5901],
+	"forwardPorts": [6080, 5901, 8080, 9888],
 	"portsAttributes": {
 		"6080": {
 			"label": "VNC web client (noVNC)",
@@ -45,6 +45,14 @@
 		"5901": {
 			"label": "VNC TCP port",
 			"onAutoForward": "silent"
+		},
+		"8080": {
+			"label": "VS Code Web",
+			"onAutoForward": "notify"
+		},
+		"9888": {
+			"label": "VS Code Server",
+			"onAutoForward": "notify"
 		}
 	},
 	"hostRequirements": {
