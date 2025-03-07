@@ -12,7 +12,8 @@ import * as parcelWatcher from '@parcel/watcher';
  * Launches the server for the monaco editor playground
  */
 function main() {
-	const server = new HttpServer({ host: 'localhost', port: 5001, cors: true });
+	const host = '0.0.0.0'
+	const server = new HttpServer({ host: host, port: 5001, cors: true });
 	server.use('/', redirectToMonacoEditorPlayground());
 
 	const rootDir = path.join(__dirname, '..');
